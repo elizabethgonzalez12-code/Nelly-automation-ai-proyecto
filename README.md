@@ -115,6 +115,28 @@ Las evidencias del funcionamiento incluyen:
 
 ---
 
+## Acceso a Airtable
+
+Base de datos utilizada durante el desarrollo y pruebas del proyecto:
+
+https://airtable.com/app51KuQa8TpNIkuu/shrJDq90i685I0M33
+
+La base contiene los registros de órdenes de compra pendientes, clasificación de prioridades, estados de seguimiento y datos utilizados por la automatización.
+
+---
+
+## Evidencias
+
+- Workflow desarrollado en n8n.
+- Integración con Airtable.
+- Integración con Gmail.
+- Implementación de Human-In-The-Loop (HITL) mediante nodo Wait.
+- Actualización automática de registros.
+- Clasificación por prioridad (CRÍTICA, MEDIA, BAJA y OK).
+
+
+---
+
 ## Autor
 
 Elizabeth González
