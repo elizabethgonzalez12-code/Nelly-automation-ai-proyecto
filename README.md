@@ -10,6 +10,16 @@ La solución permite identificar automáticamente entregas pendientes, clasifica
 
 ---
 
+## 🎥 Video Demo
+
+El funcionamiento completo de la automatización puede visualizarse en el siguiente enlace:
+
+**Video demostrativo:**
+
+https://drive.google.com/drive/folders/1AhEOz438s0OOKsphpa-aPg3IlL5zV34n?usp=sharing
+
+---
+
 ## Problema de Negocio
 
 El área de abastecimiento necesita monitorear órdenes de compra pendientes y detectar retrasos que puedan impactar la disponibilidad de productos.
@@ -18,27 +28,28 @@ Realizar este control manualmente consume tiempo y dificulta la priorización de
 
 La automatización permite:
 
-* Detectar órdenes pendientes.
-* Clasificar prioridades.
-* Notificar automáticamente a los responsables.
-* Mantener trazabilidad de las acciones realizadas.
-* Incorporar validación humana en situaciones críticas.
+- Detectar órdenes pendientes.
+- Clasificar prioridades.
+- Notificar automáticamente a los responsables.
+- Mantener trazabilidad de las acciones realizadas.
+- Incorporar validación humana en situaciones críticas.
 
 ---
 
 ## Tecnologías Utilizadas
 
-* n8n
-* Airtable
-* Gmail
-* Webhooks
-* GitHub
+- n8n
+- Airtable
+- Gmail
+- Webhooks
+- GitHub
+- Google Drive (Video Demo)
 
 ---
 
 ## Arquitectura de la Solución
 
-Webhook → Airtable → Switch → Gestión según prioridad → Actualización de estado
+**Webhook → Airtable → Switch → Gestión según prioridad → Actualización de estado**
 
 ### Flujo General
 
@@ -47,10 +58,11 @@ Webhook → Airtable → Switch → Gestión según prioridad → Actualización
 3. Un nodo Switch clasifica los registros según la prioridad.
 4. Se ejecutan acciones específicas para cada nivel:
 
-   * CRÍTICA
-   * MEDIA
-   * BAJA
-   * OK
+   - CRÍTICA
+   - MEDIA
+   - BAJA
+   - OK
+
 5. Se envían notificaciones por correo electrónico.
 6. Se actualizan los registros correspondientes en Airtable.
 
@@ -58,9 +70,9 @@ Webhook → Airtable → Switch → Gestión según prioridad → Actualización
 
 ## Human In The Loop (HITL)
 
-Las órdenes clasificadas como CRÍTICAS requieren validación humana antes de continuar el proceso.
+Las órdenes clasificadas como **CRÍTICAS** requieren validación humana antes de continuar el proceso.
 
-Para ello se implementó un nodo Wait configurado con Webhook Call, permitiendo que la ejecución quede pausada hasta recibir una aprobación manual.
+Para ello se implementó un nodo **Wait** configurado con **Webhook Call**, permitiendo que la ejecución quede pausada hasta recibir una aprobación manual desde el correo electrónico.
 
 Este mecanismo evita acciones automáticas sobre situaciones sensibles y proporciona mayor control operativo.
 
@@ -70,24 +82,24 @@ Este mecanismo evita acciones automáticas sobre situaciones sensibles y proporc
 
 ### CRÍTICA
 
-* Envío de alerta por correo electrónico.
-* Espera de validación humana (HITL).
-* Actualización del estado en Airtable.
+- Envío de alerta por correo electrónico.
+- Espera de validación humana (HITL).
+- Actualización del estado en Airtable.
 
 ### MEDIA
 
-* Envío de notificación por correo electrónico.
-* Actualización del estado en Airtable.
+- Envío de notificación por correo electrónico.
+- Actualización del estado en Airtable.
 
 ### BAJA
 
-* Envío de notificación por correo electrónico.
-* Actualización del estado en Airtable.
+- Envío de notificación por correo electrónico.
+- Actualización del estado en Airtable.
 
 ### OK
 
-* Registro informativo.
-* Actualización del estado en Airtable.
+- Registro informativo.
+- Actualización del estado en Airtable.
 
 ---
 
@@ -95,23 +107,12 @@ Este mecanismo evita acciones automáticas sobre situaciones sensibles y proporc
 
 Airtable se utiliza como repositorio central para almacenar:
 
-* Órdenes de compra.
-* Proveedores.
-* Fechas compromiso.
-* Días de atraso.
-* Prioridad.
-* Estado del seguimiento.
-
----
-
-## Evidencias
-
-Las evidencias del funcionamiento incluyen:
-
-* Capturas de pantalla del workflow.
-* Ejecuciones exitosas en n8n.
-* Integración con Gmail.
-* Registros almacenados en Airtable.
+- Órdenes de compra.
+- Proveedores.
+- Fechas compromiso.
+- Días de atraso.
+- Prioridad.
+- Estado del seguimiento.
 
 ---
 
@@ -127,18 +128,21 @@ La base contiene los registros de órdenes de compra pendientes, clasificación 
 
 ## Evidencias
 
+Las evidencias del funcionamiento incluyen:
+
+- Video demostrativo del funcionamiento completo.
 - Workflow desarrollado en n8n.
 - Integración con Airtable.
 - Integración con Gmail.
 - Implementación de Human-In-The-Loop (HITL) mediante nodo Wait.
 - Actualización automática de registros.
 - Clasificación por prioridad (CRÍTICA, MEDIA, BAJA y OK).
-
+- Capturas de pantalla del workflow y de las pruebas realizadas.
 
 ---
 
 ## Autor
 
-Elizabeth González
+**Elizabeth González**
 
 Trabajo Final – AI Automation
